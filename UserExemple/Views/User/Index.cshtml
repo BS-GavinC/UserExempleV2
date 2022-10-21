@@ -1,0 +1,43 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "Ma Liste de users";
+}
+
+<a asp-action="Create">Create</a>
+
+<Table>
+
+    <thead>
+
+        <th>
+            Id
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Role
+        </th>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (User user in Model)
+        {
+            <tr>
+                <td>
+                    @user.Id
+                </td>
+                <td>
+                    @user.Email
+                </td>
+                <td>
+                    @(user.IsAdmin ? "Admin" : "User")
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</Table>
